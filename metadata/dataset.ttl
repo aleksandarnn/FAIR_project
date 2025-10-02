@@ -1,4 +1,4 @@
-@prefix :        <https://w3id.org/FAIR-course-UT/2024-2025/YOUR_GROUP_NUMBER/data#> .
+@prefix :        <https://w3id.org/FAIR-course-UT/2024-2025/GROUP-5/data#> .
 @prefix dcat:    <http://www.w3.org/ns/dcat#> .
 @prefix dct:     <http://purl.org/dc/terms/> .
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
@@ -22,7 +22,7 @@
   dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
   dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
   dct:provenance "Sampled to 1,000 rows; trivial cleaning (duplicates removed, obvious nulls handled)."@en ;
-  dct:source <https://aqs.epa.gov/aqsweb/airdata/daily_42602_2022.zip> ;   # verify this exact file URL or replace
+  dct:source <https://aqs.epa.gov/aqsweb/airdata/daily_42602_2022.zip> ;   
   prov:wasDerivedFrom <https://aqs.epa.gov/aqsweb/airdata/download_files.html> ;
 
   # Coverage
@@ -32,7 +32,7 @@
   # Keywords & topics
   dcat:keyword "NO2", "air quality", "AQS", "EPA", "2022", "daily summary" ;
 
-  # Frequency (optional but nice)
+  # Frequency 
   dct:accrualPeriodicity <http://purl.org/cld/freq/daily> ;
 
   # At least one distribution (CSV now; RDF later)
@@ -49,16 +49,8 @@
   dct:description "CSV distribution of the sampled & cleaned daily NO₂ 2022 records."@en ;
   dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
   dcat:mediaType "text/csv" ;
-  # Replace with the RAW URL of the CSV file in your GitHub repo:
-  dcat:downloadURL <YOUR_GITHUB_RAW_CSV_URL> ;
+  dcat:downloadURL <https://github.com/aleksandarnn/FAIR_project.git> ;
   dct:issued "2025-10-03T00:00:00Z"^^xsd:dateTime ;       # <-- update on publish
-  # Optional nice-to-haves if you compute them:
-  # dcat:byteSize "123456"^^xsd:nonNegativeInteger ;
-  # <http://spdx.org/rdf/terms#checksum> [
-  #    a <http://spdx.org/rdf/terms#Checksum> ;
-  #    <http://spdx.org/rdf/terms#algorithm> <http://spdx.org/rdf/terms#checksumAlgorithm_sha256> ;
-  #    <http://spdx.org/rdf/terms#checksumValue> "FAKE_SHA256_HEX"
-  # ] ;
 .
 
 #################################################################
@@ -67,7 +59,7 @@
 
 :team
   a foaf:Organization ;
-  foaf:name "YOUR NAMES / GROUP — University of Twente FAIR Course 2024–2025"@en ;
+  foaf:name "Aleksandar Nikolov, Emils Johansens / GROUP 5 — University of Twente FAIR Course 2024–2025"@en ;
   # optional contact
   vcard:hasEmail <mailto:your.email@example.org> ;
 .
