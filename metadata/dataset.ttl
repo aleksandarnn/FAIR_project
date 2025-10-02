@@ -18,22 +18,32 @@
   dct:title "AQS Daily NO₂ (42602) — 2022 (sampled, cleaned)" ;
   dct:description """Daily summary NO₂ (parameter code 42602) observations for calendar year 2022, sampled to 1,000 rows and lightly cleaned for the FAIR course demo. Data derived from the U.S. EPA AQS AirData daily summaries. Each record represents a daily mean at a monitoring site (site code + POC), with units of parts per billion (ppb).""" ;
   dct:creator :team ;
-  dct:issued "2025-10-03T00:00:00Z"^^xsd:dateTime ;       # <-- update to when you publish
+  dct:issued "2025-10-03T00:00:00Z"^^xsd:dateTime ;
   dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
   dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
   dct:provenance "Sampled to 1,000 rows; trivial cleaning (duplicates removed, obvious nulls handled)."@en ;
-  dct:source <https://aqs.epa.gov/aqsweb/airdata/daily_42602_2022.zip> ;   
+  dct:source <https://aqs.epa.gov/aqsweb/airdata/daily_42602_2022.zip> ;
   prov:wasDerivedFrom <https://aqs.epa.gov/aqsweb/airdata/download_files.html> ;
 
   # Coverage
   dct:temporal :t-2022 ;
-  dct:spatial  :bbox-chicago-ish ;    # bounding box derived from the sample lat/longs
+  dct:spatial  :bbox-chicago-ish ;
 
   # Keywords & topics
   dcat:keyword "NO2", "air quality", "AQS", "EPA", "2022", "daily summary" ;
 
-  # Frequency 
+  # Frequency
   dct:accrualPeriodicity <http://purl.org/cld/freq/daily> ;
+
+  # NEW: identifiers, version, publisher, contact
+  dct:identifier "https://w3id.org/FAIR-course-UT/2024-2025/GROUP-5/data#dataset-42602-2022-sample" ;
+  dct:hasVersion "v1.0.0" ;
+  dct:publisher :team ;
+  dcat:contactPoint [
+    a vcard:Kind ;
+    vcard:fn "Group 5 — FAIR Course 2024–2025 (contact)" ;
+    vcard:hasEmail <mailto:your.email@example.org>
+  ] ;
 
   # At least one distribution (CSV now; RDF later)
   dcat:distribution :dist-csv-2022-sample
