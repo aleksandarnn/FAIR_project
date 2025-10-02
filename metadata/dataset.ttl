@@ -1,0 +1,99 @@
+@prefix :        <https://w3id.org/FAIR-course-UT/2024-2025/YOUR_GROUP_NUMBER/data#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix time:    <http://www.w3.org/2006/time#> .
+@prefix locn:    <http://www.w3.org/ns/locn#> .
+@prefix vcard:   <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+
+#################################################################
+# DATASET
+#################################################################
+
+:dataset-42602-2022-sample
+  a dcat:Dataset ;
+  dct:title "AQS Daily NO₂ (42602) — 2022 (sampled, cleaned)"@en ;
+  dct:description """Daily summary NO₂ (parameter code 42602) observations for calendar year 2022, sampled to 1,000 rows and lightly cleaned for the FAIR course demo. Data derived from the U.S. EPA AQS AirData daily summaries. Each record represents a daily mean at a monitoring site (site code + POC), with units of parts per billion (ppb)."""@en ;
+  dct:creator :team ;
+  dct:issued "2025-10-03T00:00:00Z"^^xsd:dateTime ;       # <-- update to when you publish
+  dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
+  dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  dct:provenance "Sampled to 1,000 rows; trivial cleaning (duplicates removed, obvious nulls handled)."@en ;
+  dct:source <https://aqs.epa.gov/aqsweb/airdata/daily_42602_2022.zip> ;   # verify this exact file URL or replace
+  prov:wasDerivedFrom <https://aqs.epa.gov/aqsweb/airdata/download_files.html> ;
+
+  # Coverage
+  dct:temporal :t-2022 ;
+  dct:spatial  :bbox-chicago-ish ;    # bounding box derived from the sample lat/longs
+
+  # Keywords & topics
+  dcat:keyword "NO2", "air quality", "AQS", "EPA", "2022", "daily summary" ;
+
+  # Frequency (optional but nice)
+  dct:accrualPeriodicity <http://purl.org/cld/freq/daily> ;
+
+  # At least one distribution (CSV now; RDF later)
+  dcat:distribution :dist-csv-2022-sample
+.
+
+#################################################################
+# DISTRIBUTION (CSV)
+#################################################################
+
+:dist-csv-2022-sample
+  a dcat:Distribution ;
+  dct:title "Cleaned sample CSV (1,000 rows)"@en ;
+  dct:description "CSV distribution of the sampled & cleaned daily NO₂ 2022 records."@en ;
+  dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
+  dcat:mediaType "text/csv" ;
+  # Replace with the RAW URL of the CSV file in your GitHub repo:
+  dcat:downloadURL <YOUR_GITHUB_RAW_CSV_URL> ;
+  dct:issued "2025-10-03T00:00:00Z"^^xsd:dateTime ;       # <-- update on publish
+  # Optional nice-to-haves if you compute them:
+  # dcat:byteSize "123456"^^xsd:nonNegativeInteger ;
+  # <http://spdx.org/rdf/terms#checksum> [
+  #    a <http://spdx.org/rdf/terms#Checksum> ;
+  #    <http://spdx.org/rdf/terms#algorithm> <http://spdx.org/rdf/terms#checksumAlgorithm_sha256> ;
+  #    <http://spdx.org/rdf/terms#checksumValue> "FAKE_SHA256_HEX"
+  # ] ;
+.
+
+#################################################################
+# CREATOR (AGENT)
+#################################################################
+
+:team
+  a foaf:Organization ;
+  foaf:name "YOUR NAMES / GROUP — University of Twente FAIR Course 2024–2025"@en ;
+  # optional contact
+  vcard:hasEmail <mailto:your.email@example.org> ;
+.
+
+#################################################################
+# TEMPORAL COVERAGE
+#################################################################
+
+:t-2022
+  a dct:PeriodOfTime ;
+  time:hasBeginning [ a time:Instant ; time:inXSDDate "2022-01-01"^^xsd:date ] ;
+  time:hasEnd       [ a time:Instant ; time:inXSDDate "2022-12-31"^^xsd:date ] ;
+.
+
+#################################################################
+# SPATIAL COVERAGE (BBOX from your sample)
+# WKT uses lon lat order; CRS84 ~ WGS84 lon/lat.
+#################################################################
+
+:bbox-chicago-ish
+  a dct:Location ;
+  locn:geometry """<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON ((
+    -87.70 41.59,
+    -87.62 41.59,
+    -87.62 41.89,
+    -87.70 41.89,
+    -87.70 41.59
+  ))"""^^geosparql:wktLiteral ;
+.
