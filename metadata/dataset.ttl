@@ -12,7 +12,6 @@
 # DATASET
 #################################################################
 
-# PID for the dataset
 :dataset/no2-2022-sample
   a dcat:Dataset ;
   dct:title "AQS Daily NO₂ (42602) — 2022 (sampled, cleaned)" ;
@@ -27,10 +26,8 @@
   dct:temporal :t-2022 ;
   dct:spatial  :bbox-chicago-ish ;
   dcat:distribution :dist/no2-2022-csv ;
-  # PROV (I3 + R1.2)
   prov:wasDerivedFrom <https://aqs.epa.gov/aqsweb/airdata/download_files.html> ;
   prov:wasGeneratedBy :activity/etl-1-2 ;
-
   dct:conformsTo :shapes/dcat-shapes ;  
 .
 
