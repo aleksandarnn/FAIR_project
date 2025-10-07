@@ -23,6 +23,7 @@
   dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
   dct:source <https://aqs.epa.gov/aqsweb/airdata/daily_42602_2022.zip> ;
   dcat:keyword "NO2","air quality","AQS","EPA","2022","daily summary" ;
+  dct:identifier "daily_42602_2022_cleaned_sampled.csv"
   dct:temporal :t-2022 ;
   dct:spatial  :bbox-chicago-ish ;
   dcat:distribution :dist/no2-2022-csv ;
