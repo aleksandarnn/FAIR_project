@@ -13,63 +13,76 @@
 # DATASET
 #################################################################
 
-:dataset-42602-2022-sample
+@prefix :         <https://w3id.org/FAIR-course-UT/2025/group5/FAIR_project/> .
+@prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dct:      <http://purl.org/dc/terms/> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix time:     <http://www.w3.org/2006/time#> .
+@prefix locn:     <http://www.w3.org/ns/locn#> .
+@prefix vcard:    <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix geosparql:<http://www.opengis.net/ont/geosparql#> .
+
+# PID for the dataset
+:dataset/no2-2022-sample
   a dcat:Dataset ;
   dct:title "AQS Daily NO₂ (42602) — 2022 (sampled, cleaned)" ;
-  dct:description """Daily summary NO₂ (parameter code 42602) observations for calendar year 2022, sampled to 1,000 rows and lightly cleaned for the FAIR course demo. Data derived from the U.S. EPA AQS AirData daily summaries. Each record represents a daily mean at a monitoring site (site code + POC), with units of parts per billion (ppb).""" ;
+  dct:description """Daily summary NO₂ (parameter code 42602) observations for calendar year 2022, sampled to 1,000 rows and lightly cleaned for the FAIR course demo. Each record is a daily mean at a monitoring site (site code + POC). Units: parts per billion (ppb).""" ;
   dct:creator :team ;
   dct:issued "2025-10-03T00:00:00Z"^^xsd:dateTime ;
   dct:language <http://id.loc.gov/vocabulary/iso639-1/en> ;
   dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
-  dct:provenance "Sampled to 1,000 rows; trivial cleaning (duplicates removed, obvious nulls handled)."@en ;
   dct:source <https://aqs.epa.gov/aqsweb/airdata/daily_42602_2022.zip> ;
-  prov:wasDerivedFrom <https://aqs.epa.gov/aqsweb/airdata/download_files.html> ;
-
-  # Coverage
+  dcat:keyword "NO2","air quality","AQS","EPA","2022","daily summary" ;
   dct:temporal :t-2022 ;
   dct:spatial  :bbox-chicago-ish ;
+  dcat:distribution :dist/no2-2022-csv ;
+  # PROV (I3 + R1.2)
+  prov:wasDerivedFrom <https://aqs.epa.gov/aqsweb/airdata/download_files.html> ;
+  prov:wasGeneratedBy :activity/etl-1-2 ;
 
-  # Keywords & topics
-  dcat:keyword "NO2", "air quality", "AQS", "EPA", "2022", "daily summary" ;
-
-  # Frequency
-  dct:accrualPeriodicity <http://purl.org/cld/freq/daily> ;
-
-  # NEW: identifiers, version, publisher, contact
-  dct:identifier "https://w3id.com/FAIR-course-UT/2025/group5/FAIR_project/data" ;
-  dct:hasVersion "v1.0.0" ;
-  dct:publisher :team ;
-  dcat:contactPoint [
-    a vcard:Kind ;
-    vcard:fn "Group 5 — FAIR Course 2024–2025 (contact)" ;
-    vcard:hasEmail <mailto:your.email@example.org>
-  ] ;
-
-  # At least one distribution (CSV now; RDF later)
-  dcat:distribution :dist-csv-2022-sample
+  dct:conformsTo :shapes/dcat-shapes ;  
 .
+
 
 #################################################################
 # DISTRIBUTION (CSV)
 #################################################################
 
-:dist-csv-2022-sample
+:dist/no2-2022-csv
   a dcat:Distribution ;
   dct:title "Cleaned sample CSV (1,000 rows)"@en ;
   dct:description "CSV distribution of the sampled & cleaned daily NO₂ 2022 records."@en ;
   dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
   dcat:mediaType "text/csv" ;
-  dcat:downloadURL <https://w3id.com/FAIR-course-UT/2025/group5/FAIR_project> ;
-  dct:issued "2025-10-03T00:00:00Z"^^xsd:dateTime ;       # <-- update on publish
-.
+  dcat:downloadURL <https://raw.githubusercontent.com/aleksandarnn/FAIR_project/main/data/daily_42602_2022_sample1000.csv> ;
+  dct:issued "2025-10-03T00:00:00Z"^^xsd:dateTime .
 
 #################################################################
 # CREATOR (AGENT)
 #################################################################
 
+:agent/group5 a prov:Agent, foaf:Group ;
+  foaf:name "Aleksandar Nikolov, Emils Johansens — Group 5 (UT FAIR 2025)" .
+
 :team a foaf:Organization ;
-     foaf:name "Aleksandar Nikolov, Emils Johansens / GROUP 5 — University of Twente FAIR Course 2024–2025" ;
-.
+  foaf:name "Group 5 — University of Twente FAIR Course 2024–2025" .
+
+#################################################################
+# ACTIVITY
+#################################################################
+
+:activity/etl-1-2
+  a prov:Activity ;
+  prov:used <https://aqs.epa.gov/aqsweb/airdata/> ,
+            :code/etl.py ,
+            :config/cleaning.yml ;
+  prov:startedAtTime "2025-10-01T09:00:00Z"^^xsd:dateTime ;
+  prov:endedAtTime   "2025-10-01T09:07:00Z"^^xsd:dateTime ;
+  prov:wasAssociatedWith :agent/group5 ;
+  prov:generated :dataset/no2-2022-sample .
+
 
 #################################################################
 # TEMPORAL COVERAGE
