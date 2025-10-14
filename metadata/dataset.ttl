@@ -42,7 +42,7 @@
   dct:description "CSV distribution of the sampled & cleaned daily NO₂ 2022 records."@en ;
   dct:license <https://creativecommons.org/publicdomain/zero/1.0/> ;
   dcat:mediaType "text/csv" ;
-  dcat:downloadURL <https://raw.githubusercontent.com/aleksandarnn/FAIR_project/main/data/daily_42602_2022_sample.csv> ;
+  dcat:downloadURL <https://raw.githubusercontent.com/aleksandarnn/FAIR_project/main/data/daily_42602_2022_sample1000.csv> ;
   dct:issued "2025-10-03T00:00:00Z"^^xsd:dateTime .
 
 #################################################################
