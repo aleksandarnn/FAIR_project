@@ -1,10 +1,23 @@
-NOTICE
+NOTICE — FAIR Project: AQS NO₂ (42602) 2022 Subset
+----------------------------------------------------
 
-This repository contains derivative packaging and metadata created by Aleksandar Nikolov & Emils Johansens, dedicated to the public domain via CC0 1.0.
+Authors:
+  Aleksandar Nikolov
+  Emils Johansens
+  Group 5 — University of Twente FAIR Course 2024–2025
 
-Original data source:
-U.S. Environmental Protection Agency (EPA) AirData/AQS daily summary files.
-AirData download page: https://aqs.epa.gov/aqsweb/airdata/download_files.html
+Citation:
+  “Group 5 — FAIRification of AQS Daily NO₂ (42602) 2022 Data”,  
+  University of Twente, 2025.  
+  Available at: https://w3id.org/FAIR-course-UT/2025/group5/FAIR_project/
 
-EPA places its public datasets in the public domain. Any use of EPA names or logos does not imply endorsement.
-We disclaim any warranties; see LICENSE for the CC0 dedication and disclaimers.
+Source:
+  Original data from U.S. EPA Air Quality System (AQS) — Daily NO₂ Summary 2022  
+  https://aqs.epa.gov/aqsweb/airdata/
+
+License:
+  Public Domain (CC0 1.0) — No rights reserved.
+
+Additional Acknowledgment:
+  This work was conducted as part of the University of Twente course  
+  “FAIR Data for Smart Industry Systems 2024–2025”.
