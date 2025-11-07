@@ -1,0 +1,57 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ldp: <http://www.w3.org/ns/ldp#> .
+
+<http://localhost:8080/dataset/dc35d93a-cbe5-41f7-a01e-83dbdc1b159c> a dcat:Resource,
+    dcat:Dataset;
+  <http://www.w3.org/2000/01/rdf-schema#label> "NO2 2022";
+  dcterms:title "NO2 2022";
+  dcat:version "1";
+  <https://w3id.org/fdp/fdp-o#metadataIssued> "2025-10-18T16:55:25.14344702Z"^^xsd:dateTime;
+  <https://w3id.org/fdp/fdp-o#metadataModified> "2025-10-18T16:55:59.859448127Z"^^xsd:dateTime;
+  dcterms:license <http://purl.org/NET/rdflicense/cc-zero1.0>;
+  dcterms:language <http://id.loc.gov/vocabulary/iso639-1/en>;
+  <https://w3id.org/fdp/fdp-o#metadataIdentifier> <http://localhost:8080/dataset/dc35d93a-cbe5-41f7-a01e-83dbdc1b159c#identifier>;
+  dcterms:accessRights <http://localhost:8080/dataset/dc35d93a-cbe5-41f7-a01e-83dbdc1b159c#accessRights>;
+  dcterms:publisher [ a foaf:Agent;
+      foaf:name "Emils and Alex"
+    ];
+  <http://semanticscience.org/resource/SIO_000628> <http://localhost:8080/dataset/dc35d93a-cbe5-41f7-a01e-83dbdc1b159c/metrics/445c0a70d1e214e545b261559e2842f4>,
+    <http://localhost:8080/dataset/dc35d93a-cbe5-41f7-a01e-83dbdc1b159c/metrics/5d27e854a9e78eb3f663331cd47cdc13>;
+  dcterms:isPartOf <http://localhost:8080/catalog/3096084f-8814-44fa-a671-f71bb9167833>;
+  dcat:theme <https://www.epa.gov/naaqs/nitrogen-dioxide-no2-primary-air-quality-standards>;
+  dcterms:creator <https://www.epa.gov/>;
+  <https://w3id.org/FAIR-course-UT/2025/group5/FAIR_project/chemical> "NO2";
+  <https://w3id.org/FAIR-course-UT/2025/group5/FAIR_project/country> "USA";
+  <https://w3id.org/FAIR-course-UT/2025/group5/FAIR_project/endDate> "2022-12-31"^^xsd:date;
+  <https://w3id.org/FAIR-course-UT/2025/group5/FAIR_project/startDate> "2022-01-01"^^xsd:date;
+  dcat:distribution <http://localhost:8080/distribution/c0527fa6-fd0f-43e7-b138-5234c47c30c0>;
+  dcterms:conformsTo <http://localhost:8080/profile/2f08228e-1789-40f8-84cd-28e3288c3604> .
+
+<http://localhost:8080/dataset/dc35d93a-cbe5-41f7-a01e-83dbdc1b159c#identifier> a
+    <http://purl.org/spar/datacite/Identifier>;
+  dcterms:identifier "http://localhost:8080/dataset/dc35d93a-cbe5-41f7-a01e-83dbdc1b159c" .
+
+<http://localhost:8080/dataset/dc35d93a-cbe5-41f7-a01e-83dbdc1b159c#accessRights>
+  a dcterms:RightsStatement;
+  dcterms:description "This resource has no access restriction" .
+
+<http://localhost:8080/dataset/dc35d93a-cbe5-41f7-a01e-83dbdc1b159c/metrics/445c0a70d1e214e545b261559e2842f4>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.ietf.org/rfc/rfc3986.txt>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.ietf.org/rfc/rfc3986.txt> .
+
+<http://localhost:8080/dataset/dc35d93a-cbe5-41f7-a01e-83dbdc1b159c/metrics/5d27e854a9e78eb3f663331cd47cdc13>
+  <http://semanticscience.org/resource/SIO_000628> <https://www.wikidata.org/wiki/Q8777>;
+  <http://semanticscience.org/resource/SIO_000332> <https://www.wikidata.org/wiki/Q8777> .
+
+<http://localhost:8080/distribution/> a ldp:DirectContainer;
+  dcterms:title "Distributions";
+  ldp:membershipResource <http://localhost:8080/dataset/dc35d93a-cbe5-41f7-a01e-83dbdc1b159c>;
+  ldp:hasMemberRelation dcat:distribution;
+  ldp:contains <http://localhost:8080/distribution/9d63e800-910a-449e-8878-b3ef116ef039>,
+    <http://localhost:8080/distribution/c0527fa6-fd0f-43e7-b138-5234c47c30c0> .
+
+<http://localhost:8080/profile/2f08228e-1789-40f8-84cd-28e3288c3604> <http://www.w3.org/2000/01/rdf-schema#label>
+    "Dataset Profile" .
