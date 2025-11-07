@@ -1,6 +1,6 @@
 # FAIR_project
 
-Data derived from U.S. EPA Air Quality System (AQS) “AirData” Daily Summary (accessed YYYY-MM-DD).
+Data derived from U.S. EPA Air Quality System (AQS) “AirData” Daily Summary (accessed 2025-09-15).
 Original source is a U.S. Government Work (public domain).
 This repository’s cleaned dataset, RDF conversion, and metadata are dedicated to the public domain under CC0 1.0.
 EPA does not endorse any analysis or conclusions presented here.
